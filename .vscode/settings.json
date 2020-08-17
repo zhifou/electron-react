@@ -1,0 +1,17 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/.browserslistrc": true,
+        "**/.babelrc": false,
+        "**/.editorconfig": true,
+        "**/.npmrc": true,
+        "**/.env.development": false,
+        "**/.gitignore": true,
+        "package-lock.json": true,
+        "yarn.lock": true
+    }
+}
