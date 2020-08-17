@@ -10,7 +10,7 @@
         "**/.editorconfig": true,
         "**/.npmrc": true,
         "**/.env.development": false,
-        "**/.gitignore": true,
+        "**/.gitignore": false,
         "package-lock.json": true,
         "yarn.lock": true
     }
