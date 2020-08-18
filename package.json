@@ -10,7 +10,9 @@
     "build": "npm run build-render && npm run build-electron"
   },
   "build": {
+    "appId": "com.zhifou.electron",
     "productName": "electron-react",
+    "copyright": "Copyright © 2020",
     "files": [
       "dist/",
       "main.js"
@@ -67,6 +69,8 @@
   },
   "dependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "antd": "^4.5.4",
+    "babel-plugin-import": "^1.13.0"
   }
 }

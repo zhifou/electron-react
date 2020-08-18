@@ -27,7 +27,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(eot|ttf)$/,
+        test: /\.(eot|ttf|ico)$/,
         use: {
           loader: 'file-loader',
           options: {  // 配置
@@ -37,7 +37,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(svg|jpg|png|gif)$/,
+        test: /\.(svg|jpg|png|gif|ico)$/,
         use: {
           loader: 'url-loader',
           options: { // 配置
