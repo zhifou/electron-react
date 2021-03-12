@@ -1,10 +1,45 @@
-@import '~antd/dist/antd.css';
+@import "~antd/dist/antd.css";
 
-button {
-  font-size: 18px;
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #fff;
 }
 
-.App-download {
-  width: 500px;
-  height: 100px;
+header {
+    background-color: #d8df0d;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    .nav {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .logo {
+            img {
+                width: 48px;
+                height: auto;
+                object-fit: contain;
+            }
+        }
+        &__link {
+          padding: 0 8px;
+        }
+    }
+}
+
+footer {
+    height: 84px;
+    width: auto;
+    background: #d1d1d1 url('@assets/images/download.png') no-repeat top right;
+    background-size: auto 84px;
+}
+
+.container {
+    background-color: #fff;
 }

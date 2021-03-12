@@ -1,45 +1,40 @@
-import React, { Component } from 'react';
-import { remote, ipcRenderer } from 'electron';
-import './index.scss';
-import logo from '../../logo.svg';
-import download from '../../download.png';
-import { Button } from 'antd';
+import React, { Component } from "react";
 
-const { Notification } = remote;
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import "./index.scss";
+import logo from "@assets/images/logo.svg";
 
-class App extends Component {
-  componentDidMount() {
-    // 监听主进程发来的事件
-    ipcRenderer.on('something1', (event: any, data: any) => {
-      console.log('接收到main进程发送的消息11', data); // 我是主进程返回的值
-    })
-  }
+import Home from "../Home";
+import About from "../About";
 
-  onShowNotification() {
-    let myNotification = new Notification({ title: '渲染进程通知', body: '在渲染进程中直接使用主进程的模块11' });
-    myNotification.show();
-  }
-
-  onSendMessageToMain() {
-    // 发送事件给主进程
-    ipcRenderer.send('something', '传输给主进程的值')
-  }
-
-  componentWillUnmount() {
-    ipcRenderer.removeAllListeners('something1');
-  }
-
-  render() {
+const App = () => {
     return (
-      <React.Fragment>
-        <img src={logo} className="App-logo" alt="logo" />
-        <button onClick={this.onSendMessageToMain}>与主进程通信-12</button>
-        <br /> <br />
-        <button onClick={this.onShowNotification}>使用 remote 直接调用主进程模块</button>
-        <Button type="primary">我是button</Button>
-      </React.Fragment>
-    )
-  }
-}
+        <Router>
+            <div className="wrapper">
+              <header>
+                  <div className="header">
+                    <div className="nav">
+                      <div className="logo"><img src={logo} alt="logo"/></div>
+                      <NavLink className="nav__link" to="/">首页</NavLink>
+                      <NavLink className="nav__link" to="/about">关于我们</NavLink>
+                    </div>
+                    <div className="nav-action">
+                      action
+                    </div>
+                  </div>
+
+              </header>
+              <div className="container">
+                  <Route exact path="/" component={Home} />
+                  <Route path="/about" component={About} />
+              </div>
+              <footer>
+                I am footer.
+              </footer>
+            </div>
+
+        </Router>
+    );
+};
 
 export default App;
