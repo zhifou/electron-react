@@ -44,7 +44,13 @@
     "directories": {
       "buildResources": "assets",
       "output": "release"
-    }
+    },
+    "extraResources": [
+      {
+        "from": "assets/", 
+        "to": "assets/"
+      }
+    ]
   },
   "devDependencies": {
     "@types/react": "^16.9.46",

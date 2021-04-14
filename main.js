@@ -35,11 +35,11 @@ function createWindow() {
             enableRemoteModule: true
         },
         backgroundColor: '#efefef',
-        icon: path.join(__dirname, 'assets/images/app.png')
+        // icon: path.join(__dirname, 'assets/images/app.png')
     });
 
     if (process.platform === 'darwin') {
-        app.dock.setIcon(path.join(__dirname, 'assets/images/app.png'));
+        // app.dock.setIcon(path.join(__dirname, 'assets/images/app.png'));
     }
 
     if (isDev) {
