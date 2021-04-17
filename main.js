@@ -35,11 +35,11 @@ function createWindow() {
             enableRemoteModule: true
         },
         backgroundColor: '#efefef',
-        icon: path.join(__dirname, 'assets/images/app.png')
+        // icon: path.join(__dirname, 'assets/images/app.png')
     });
 
     if (process.platform === 'darwin') {
-        app.dock.setIcon(path.join(__dirname, 'assets/images/app.png'));
+        // app.dock.setIcon(path.join(__dirname, 'assets/images/app.png'));
     }
 
     if (isDev) {
@@ -152,16 +152,16 @@ function createWindow() {
 
 
     // 引入BrowserView在窗口中打开外部网页，类似iframe效果
-    let BrowserView = electron.BrowserView;
-    let view = new BrowserView();
-    win.setBrowserView(view);
-    view.setBounds({
-        x: 0,
-        y: 300,
-        width: 500,
-        height: 400
-    });
-    view.webContents.loadURL('https://www.baidu.com');
+    // let BrowserView = electron.BrowserView;
+    // let view = new BrowserView();
+    // win.setBrowserView(view);
+    // view.setBounds({
+    //     x: 0,
+    //     y: 300,
+    //     width: 500,
+    //     height: 400
+    // });
+    // view.webContents.loadURL('https://www.baidu.com');
 
     // 注册全局快捷键
     globalShortcut.register('ctrl+b', () => {

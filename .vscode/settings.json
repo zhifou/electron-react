@@ -8,10 +8,10 @@
         "**/.browserslistrc": true,
         "**/.babelrc": false,
         "**/.editorconfig": true,
-        "**/.npmrc": true,
+        "**/.npmrc": false,
         "**/.env.development": false,
         "**/.gitignore": false,
-        "package-lock.json": true,
+        "package-lock.json": false,
         "yarn.lock": true
     }
 }

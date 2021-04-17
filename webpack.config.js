@@ -1,11 +1,16 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const spawn = require('child_process').spawn;
+const fs = require('fs');
+// 获取当前工作目录
+const appDirectory = fs.realpathSync(process.cwd());
+// 从相对路径中解析绝对路径
+const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
 module.exports = {
   target: 'electron-renderer',
   mode: 'development',
-  entry: './src/index.tsx',
+  entry: './src/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -13,16 +18,19 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        include: [
+            resolveApp('src')
+        ],
+        use: "babel-loader"
       },
       {
-        test: /\.scss$/,
+        test: /\.less$/,
         use: [
           'style-loader',
           'css-loader',
-          'sass-loader',
+          'less-loader',
           'postcss-loader'
         ]
       },
@@ -62,7 +70,7 @@ module.exports = {
     }
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.jsx', '.js'],
     alias: {
       "@container": path.resolve(__dirname, 'src/container/'),
       "@assets": path.resolve(__dirname, 'assets/'),

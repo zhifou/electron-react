@@ -1,27 +1,25 @@
 import React, { Component } from "react";
 import { remote, ipcRenderer, clipboard, shell } from "electron";
-import "./index.scss";
-import { Button, message } from "antd";
-import { EventHandler } from "react";
+// import { Button, message } from "antd";
+
+import "./index.less";
 
 const { Notification, BrowserWindow } = remote;
 
-interface IProps {}
-interface IState {
-    info: string;
-}
 
-class Home extends Component<IProps, IState> {
-    constructor(props: IProps) {
+class Home extends Component{
+    constructor(props) {
         super(props);
 
+        this.onShowInfo = this.onShowInfo.bind(this);
+
         this.state = {
-            info: "",
+            info: ""
         };
     }
     componentDidMount() {
         // 监听主进程发来的事件
-        ipcRenderer.on("fromMainProcess", (event: any, data: any) => {
+        ipcRenderer.on("fromMainProcess", (event, data) => {
             console.log("接收到main进程发送的消息11", data); // 我是主进程返回的值
             this.setState({
                 info: JSON.stringify(data),
@@ -67,13 +65,15 @@ class Home extends Component<IProps, IState> {
             e.preventDefault();
             mContext.popup({ window: remote.getCurrentWindow() });
         });
+
+        console.log(Math.random());
     }
 
     componentWillUnmount() {
         ipcRenderer.removeAllListeners("fromMainProcess");
     }
 
-    onShowNotification = () => {
+    onShowNotification() {
         let myNotification = new Notification({
             title: "渲染进程通知",
             body: "在渲染进程中直接使用主进程的模块11",
@@ -81,22 +81,23 @@ class Home extends Component<IProps, IState> {
         myNotification.show();
     };
 
-    onSendMessageToMain = () => {
+    onSendMessageToMain() {
         // 发送事件给主进程
         ipcRenderer.send("something", "传输给主进程的值");
     };
 
-    onShowInfo = () => {
-        message.success(this.state.info);
+    onShowInfo() {
+        // message.success(this.state.info);
     };
 
-    onCopyClick = () => {
-        const code = (document as Document).querySelector("#code");
+    onCopyClick() {
+        const code = document.querySelector("#code");
         clipboard.writeText(code.innerHTML);
-        message.info("复制成功");
+        // message.info("复制成功");
+        console.log('copy success');
     };
 
-    onOpenNewWindow = () => {
+    onOpenNewWindow() {
         let newWin = new BrowserWindow({
             width: 500,
             height: 500,
@@ -109,18 +110,18 @@ class Home extends Component<IProps, IState> {
     };
 
     // 在浏览器中打开页面
-    openInBrowser = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    openInBrowser(e) {
         e.preventDefault();
         console.log(e.target);
-        let href = (e.target as HTMLAnchorElement).href;
+        let href = e.target.href;
         shell.openExternal(href);
     };
 
-    onOpenSubWindow = () => {
+    onOpenSubWindow() {
         window.open('https://www.baidu.com');
     };
 
-    onSendMsg = () => {
+    onSendMsg() {
         let option = {
             title: '来自海上的消息',
             body: '欢迎来上海做客，阿拉上海欢迎你。'
@@ -142,19 +143,19 @@ class Home extends Component<IProps, IState> {
                     </button>
                 </div>
                 <div>
-                    <Button type="primary" onClick={this.onShowInfo}>
+                    <button onClick={this.onShowInfo}>
                         我是button
-                    </Button>
+                    </button>
                 </div>
                 <div>
                     激活码: <span id="code">mybj123com1234567</span>
-                    <Button type="primary" onClick={this.onCopyClick}>
+                    <button  onClick={this.onCopyClick}>
                         复制激活码
-                    </Button>
+                    </button>
                 </div>
-                <Button type="primary" onClick={this.onOpenNewWindow}>
+                <button onClick={this.onOpenNewWindow}>
                     打开一个新窗口
-                </Button>
+                </button>
                 {/** 如何在浏览器中打开链接 */}
                 <div>
                     <a
@@ -165,14 +166,14 @@ class Home extends Component<IProps, IState> {
                     </a>
                 </div>
                 <div>
-                    <Button type="primary" onClick={this.onOpenSubWindow}>
+                    <button onClick={this.onOpenSubWindow}>
                         打开一个子窗口
-                    </Button>
+                    </button>
                 </div>
                 <div>
-                    <Button type="primary" onClick={this.onSendMsg}>
+                    <button onClick={this.onSendMsg}>
                         发送一个消息
-                    </Button>
+                    </button>
                 </div>
             </React.Fragment>
         );
