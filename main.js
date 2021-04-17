@@ -35,11 +35,11 @@ function createWindow() {
             enableRemoteModule: true
         },
         backgroundColor: '#efefef',
-        // icon: path.join(__dirname, 'assets/images/app.png')
+        // icon: path.join(__dirname, 'assets/app.png')
     });
 
     if (process.platform === 'darwin') {
-        // app.dock.setIcon(path.join(__dirname, 'assets/images/app.png'));
+        // app.dock.setIcon(path.join(__dirname, 'assets/app.png'));
     }
 
     if (isDev) {
@@ -76,7 +76,7 @@ function createWindow() {
     ];
 
     // 系统托盘图标目录
-    let trayIcon = path.join(__dirname, 'assets/images');//app是选取的目录
+    let trayIcon = path.join(__dirname, 'assets');//app是选取的目录
 
     appTray = new Tray(path.join(trayIcon, 'app.ico'));//app.ico是app目录下的ico文件
 

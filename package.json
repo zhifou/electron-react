@@ -39,7 +39,8 @@
             "x64"
           ]
         }
-      ]
+      ],
+      "icon": "assets/app.ico"
     },
     "directories": {
       "buildResources": "assets",
