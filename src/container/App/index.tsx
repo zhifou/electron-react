@@ -7,7 +7,7 @@ import logo from "@assets/images/logo.svg";
 import Home from "../Home";
 import About from "../About";
 
-const App = () => {
+const App = (): any => {
     return (
         <Router>
             <div className="wrapper">

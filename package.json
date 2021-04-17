@@ -47,7 +47,7 @@
     },
     "extraResources": [
       {
-        "from": "assets/", 
+        "from": "assets/",
         "to": "assets/"
       }
     ]
@@ -55,28 +55,30 @@
   "devDependencies": {
     "@types/react": "^16.9.46",
     "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.7",
+    "autoprefixer": "^9.8.6",
     "cross-env": "^7.0.2",
     "css-loader": "^4.2.1",
     "electron": "^9.2.0",
     "electron-builder": "^22.8.0",
+    "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
     "sass-loader": "^9.0.3",
     "style-loader": "^1.2.1",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
+    "url-loader": "^4.1.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0",
-    "file-loader": "^6.0.0",
-    "url-loader": "^4.1.0",
-    "postcss-loader": "^3.0.0",
-    "autoprefixer": "^9.8.6"
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "antd": "^4.5.4",
+    "babel-plugin-import": "^1.13.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "antd": "^4.5.4",
-    "babel-plugin-import": "^1.13.0"
+    "react-router-dom": "^5.2.0"
   }
 }
