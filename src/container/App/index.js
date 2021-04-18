@@ -1,5 +1,5 @@
 import React, { Component, MouseEvent } from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route, NavLink } from "react-router-dom";
 import history from '../../routes/history';
 import Home from "../Home";
 import About from "../About";
@@ -23,6 +23,8 @@ const App = () => {
                   <div className="header">
                     <div className="nav">
                       <div className="logo"><img src={logo} alt="logo"/></div>
+                      <NavLink to="/">home</NavLink>
+                      <NavLink to="/about">about</NavLink>
                       <a href="/">首页</a>
                       <a href="/about" onClick={(e) => gotoNext('/about', e)}>关于我们</a>
                     </div>

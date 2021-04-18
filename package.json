@@ -13,7 +13,7 @@
     "appId": "com.zhifou.electron",
     "productName": "electron-react",
     "copyright": "Copyright © 2020",
-    "asar": true,
+    "asar": false,
     "directories": {
       "buildResources": "build",
       "output": "release"
@@ -79,7 +79,6 @@
     "history": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0"
   }
 }

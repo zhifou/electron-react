@@ -95,47 +95,47 @@ function createWindow() {
     });
 
     // 设置应用程序主菜单
-    let template = [
-        {
-            label: '乐库',
-            submenu: [
-                {
-                    label:'儿童大全',
-                    click:() => {
-                        let win = new BrowserWindow({
-                            width:500,
-                            height:500,
-                            webPreferences: {
-                                nodeIntegration: true
-                            }
-                        });
-                        win.loadFile('main/children.html');
-                        win.on('closed', ()=>{
-                            win = null
-                        })
-                    }
-                },
-                {
-                    type: 'separator'
-                },
-                {label:'抖音热歌'},
-                {label:'车载音乐'},
-                {label:'网红歌曲'}
-            ]
-        },
-        {
-            label: '电台',
-            submenu: [
-                {label:'主题'},
-                {label:'场景'},
-                {label:'心情'}
-            ]
-        }
-    ]
+    // let template = [
+    //     {
+    //         label: '乐库',
+    //         submenu: [
+    //             {
+    //                 label:'儿童大全',
+    //                 click:() => {
+    //                     let win = new BrowserWindow({
+    //                         width:500,
+    //                         height:500,
+    //                         webPreferences: {
+    //                             nodeIntegration: true
+    //                         }
+    //                     });
+    //                     win.loadFile('main/children.html');
+    //                     win.on('closed', ()=>{
+    //                         win = null
+    //                     })
+    //                 }
+    //             },
+    //             {
+    //                 type: 'separator'
+    //             },
+    //             {label:'抖音热歌'},
+    //             {label:'车载音乐'},
+    //             {label:'网红歌曲'}
+    //         ]
+    //     },
+    //     {
+    //         label: '电台',
+    //         submenu: [
+    //             {label:'主题'},
+    //             {label:'场景'},
+    //             {label:'心情'}
+    //         ]
+    //     }
+    // ]
     
-    let m = Menu.buildFromTemplate(template);// 加载模板
+    // let m = Menu.buildFromTemplate(template);// 加载模板
     
-    Menu.setApplicationMenu(m);     // 设置窗口的菜单
+    // Menu.setApplicationMenu(m);     // 设置窗口的菜单
 
     win.on('close', (e) => {
         // 回收BrowserWindow对象
@@ -164,22 +164,22 @@ function createWindow() {
     // view.webContents.loadURL('https://www.baidu.com');
 
     // 注册全局快捷键
-    globalShortcut.register('ctrl+b', () => {
-        let win = new BrowserWindow({
-            width:500,
-            height:500,
-            webPreferences: {
-                nodeIntegration: true
-            }
-        });
-        win.loadURL('http://www.zhifou.co/');
-        win.on('closed', ()=>{
-            win = null
-        })
-    });
+    // globalShortcut.register('ctrl+b', () => {
+    //     let win = new BrowserWindow({
+    //         width:500,
+    //         height:500,
+    //         webPreferences: {
+    //             nodeIntegration: true
+    //         }
+    //     });
+    //     win.loadURL('http://www.zhifou.co/');
+    //     win.on('closed', ()=>{
+    //         win = null
+    //     })
+    // });
 
-    let isRegister= globalShortcut.isRegistered('ctrl+b') ? 'Register Success':'Register fail';
-    console.log('------->'+isRegister);
+    // let isRegister= globalShortcut.isRegistered('ctrl+b') ? 'Register Success':'Register fail';
+    // console.log('------->'+isRegister);
 }
 
 /**
